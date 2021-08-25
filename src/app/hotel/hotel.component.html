@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/admin/getAllHotels">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="admin/getAllHotels">Get all hotels</a>
+        <a class="nav-item nav-link" href="admin/addHotel">Add Hotel</a>
+        <a class="nav-item nav-link" href="/login">LogIn</a>
+        <a class="nav-item nav-link" href="/registration">SignUp</a>
+        <a class="nav-item nav-link" href="admin/getAllUser">Get All Users</a>
+        <a class="nav-item nav-link" href="/fetchAllBookingDetails">Show All Bookings</a>
+      </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0 ml-auto">
+      <input class="form-control" type="search" placeholder="Search By City" aria-label="Search" [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
+      <a href="/admin/getHotelByCity/{{city}}" class="btn btn-primary btn-md my-2 my-sm-0 ml-3">Search</a>
+    </form>
+  </nav>
+
+

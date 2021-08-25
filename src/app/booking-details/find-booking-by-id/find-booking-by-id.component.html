@@ -1,0 +1,54 @@
+<!--Section: Block Content-->
+<section class="mb-5">
+
+  <div class="row">
+
+    <div class="col-md-6 mt-5" *ngFor="let booking of  bookingDetails">
+
+      <h5>{{booking.booking_id}}</h5>
+
+      <div class="table-responsive" style="margin-right: 10%;">
+        <table class="table table-sm table-borderless mb-0" >
+          <tbody>
+            <tr style="margin-right: 10%;">
+              <th class="pl-0 w-25" scope="row"><strong>Booking Id</strong></th>
+              <td>{{booking.booking_id}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Hotel Id</strong></th>
+              <td>{{booking.hotel_id}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>User Name</strong></th>
+              <td>{{booking.username}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Booked From</strong></th>
+              <td>{{booking.booked_from}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Booked To</strong></th>
+              <td>{{booking.booked_to}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Number of Adults</strong></th>
+              <td>{{booking.no_of_adults}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Number of Children</strong></th>
+              <td>{{booking.no_of_children}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>totalAmount</strong></th>
+              <td>{{booking.totalAmount}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <a href="#"><button type="button" class="btn btn-primary btn-md mr-1 mb-2">Rooms</button></a>
+    </div>
+  </div>
+
+</section>
+<!--Section: Block Content-->

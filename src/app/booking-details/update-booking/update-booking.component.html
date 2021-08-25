@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<style>
+  body {
+	color: rgb(66, 33, 33);
+	/* background: rgb(172, 124, 152); */
+  background-image: url('https://i.pinimg.com/originals/ef/39/c9/ef39c925f59c5fdb013a339e75ea2edb.jpg');
+	background-size: cover;
+  opacity: 1;
+  font-family: 'Roboto', sans-serif;
+}
+</style>
+<body> 
+    <div class="form">
+          <div class="title">Update Booking Details</div>
+          <div class="subtitle">Enter the details to be updated</div>
+          <div class="input-container ic1">
+            <input id="bookingId" class="input" type="number" placeholder="booking id" />
+            <div class="cut"></div>
+            <label for="booking_id" class="placeholder">Booking Id</label>
+          </div>
+
+          <div class="input-container ic2">
+            <input id="hotelId" class="input" type="number" placeholder="hotel id" />
+            <div class="cut"></div>
+            <label for="hotel_id" class="placeholder">Hotel Id</label>
+          </div>
+
+          <div class="input-container ic2">
+            <input id="userName" class="input" type="text" placeholder="enter username" />
+            <div class="cut cut-short"></div>
+            <label for="username" class="placeholder">User Name</label> 
+          </div>
+
+        <div class="input-container ic2">
+            <input id="bookedFrom" class="input" type="date" placeholder="check-in date" />
+            <div class="cut cut-short"></div>
+            <label for="booked_from" class="placeholder">Booked From</label>
+          </div>
+
+        <div class="input-container ic2">
+            <input id="bookedTo" class="input" type="date" placeholder="check-out date" />
+            <div class="cut cut-short"></div>
+            <label for="booked_to" class="placeholder">Booked To</label>
+          </div>
+          
+        <div class="input-container ic2">
+            <input id="adults" class="input" type="text" placeholder="no of adults" />
+            <div class="cut cut-short"></div>
+            <label for="no_of_adults" class="placeholder">Number Of Adults</label>
+          </div>
+
+        <div class="input-container ic2">
+            <input id="children" class="input" type="number" placeholder="no of children " />
+            <div class="cut cut-short"></div>
+            <label for="no_of_children" class="placeholder">Number Of Children</label>
+          </div>
+
+        <div class="input-container ic2">
+            <input id="amount" class="input" type="number" placeholder="enter total billing amount" />
+            <div class="cut cut-short"></div>
+            <label for="totalAmount" class="placeholder">Total Amount</label>
+          </div>
+        <!-- (click)="updateBookingDetails -->
+          <button type="text" class="submit" >Save Changes</button>
+        </div>
+    </body>

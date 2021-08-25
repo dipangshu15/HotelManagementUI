@@ -1,0 +1,89 @@
+<app-hotel></app-hotel>
+<!--Section: Block Content-->
+<section class="mb-5">
+
+  <div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+
+      <div id="mdb-lightbox-ui"></div>
+
+      <div class="mdb-lightbox">
+
+        <div class="row product-gallery mx-1">
+
+          <div class="col-12 mb-2">
+            <figure class="view overlay rounded z-depth-1 main-img">
+                <img src="../../../assets/images/7.jpg" style="width: 80%; margin-top: 10%;"
+                  class="img-fluid z-depth-1">
+            </figure>
+            
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="../../../assets/images/1.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+             
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="../../../assets/images/4.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="../../../assets/images/2.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6 mt-5" *ngFor="let hotel of hotels">
+
+      <h5>{{hotel.hotel_name}}  {{hotel.hotel_id}}</h5>
+      <p class="pt-1" style="margin-right: 10%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+        error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+        officia quis dolore quos sapiente tempore alias.</p>
+      <div class="table-responsive" style="margin-right: 10%;">
+        <table class="table table-sm table-borderless mb-0" >
+          <tbody>
+            <tr style="margin-right: 10%;">
+              <th class="pl-0 w-25" scope="row"><strong>City</strong></th>
+              <td>{{hotel.city}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Address</strong></th>
+              <td>{{hotel.address}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Phone1</strong></th>
+              <td>{{hotel.phone1}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Phone2</strong></th>
+              <td>{{hotel.phone2}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Website</strong></th>
+              <td>{{hotel.website}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <a href="admin/getRoomByHotelId/{{hotel.hotel_id}}"><button type="button" class="btn btn-primary btn-md mr-1 mb-2">Rooms</button></a>
+    </div>
+  </div>
+
+</section>
+<!--Section: Block Content-->

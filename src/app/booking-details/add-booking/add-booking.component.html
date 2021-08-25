@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addBooking</title>
+    <link rel="stylesheet" type="text/css" href="add-booking.component.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <header class="booking">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/fetchAllBookingDetails">Show All Bookings</a>
+            </div>
+        </div>
+        <!-- <form class="form-inline my-2 my-lg-0 ml-auto">
+            <input class="form-control" type="search" placeholder="find by booking id " aria-label="Find Booking" [(ngModel)]="booking_id" [ngModelOptions]="{standalone: true}">
+            <a href="/findBookingDetailsById/{{booking_id}}" class="btn btn-primary btn-md my-2 my-sm-0 ml-3">Find</a>
+        </form> -->
+    </nav>
+    </header>
+
+    <div class="container-fluid container">
+
+        <div class="header">
+            <h2>Fill Booking Details</h2>
+        </div>
+
+        <form [formGroup]="bookingDetailsForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+
+                <label>Booking Id</label>
+
+                <input formControlName="booking_id" type="number" class="form-control" id="booking_id"
+                    placeholder="enter booking id" >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Hotel Id</label>
+
+                <input formControlName="hotel_id" type="number" class="form-control" id="hotel_id"
+                    placeholder="enter hotel id" >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>User Name</label>
+
+                <input formControlName="username" type="text" class="form-control" id="username" placeholder="johnDoe29"
+                    pattern="[A-Z\sa-z]{3,20}">
+
+            </div>
+
+            <hr>
+
+            <div class="form-group inlined">
+
+                <label for="checkin-date">Check-in Date</label>
+
+                <input type="date" class="form-control" id="checkin-date" name="checkin">
+
+            </div>
+
+            <div class="form-group inlined">
+
+                <label for="checkout-date">Check-out Date</label>
+
+                <input type="date" class="form-control" id="checkout-date" name="checkout">
+
+            </div>
+
+            <div class="form-group inlined">
+
+                <label>Number of Adults</label>
+
+                <input formControlName="no_of_adults" type="number" class="form-control" id="no_of_adults"
+                    placeholder="ex: 2 !(minimum = 1)" min="1" >
+
+            </div>
+
+            <div class="form-group inlined">
+                <label>Number of Children</label>
+
+                <input formControlName="no_of_children" type="number" class="form-control" id="no_of_children"
+                    placeholder="ex: 2" min="0" >
+
+            </div>
+
+
+            <div class="form-group">
+                <label>Room Numbers</label>
+                <button type="button" class="btn btn-secondary btn-sm m-2" (click)="add_room_no()">Room Numbers</button>
+                <div formArrayName="rooms" *ngFor="let rooms of room_no.controls, let i=index">
+                    <input type="number" class="form-control my-1" [formControlName]="i">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label>Total Amount</label>
+                <input formControlName="totalAmount" type="number" class="form-control" id="total_amount"
+                    placeholder="ex: 5500">
+
+            </div>
+
+            
+            <!-- Add PAYMENT Component procced link here -->
+            <a href="#" class="btn btn-primary" >Confirm & Pay</a>
+
+        </form>
+        {{bookingDetailsForm.value | json}}
+    </div>
+    
+<!-- 
+     [disabled]="!bookingDetailsForm.valid" 
+    <div class="clear"></div>
+
+    <script>
+        var currentDateTime = new Date();
+        var year = currentDateTime.getFullYear();
+        var month = (currentDateTime.getMonth() + 1);
+        var date = (currentDateTime.getDate() + 1);
+
+        if (date < 10) {
+            date = '0' + date;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+
+        var dateTomorrow = year + "-" + month + "-" + date;
+        var checkinElem = document.getElementById("checkin-date");
+        var checkoutElem = document.getElementById("checkin-date");
+
+        checkinElem.setAttribute("min", dateTomorrow);
+
+        checkinElem.onchange = function () {
+            checkoutElem.setAttribute("min", this.value);
+        }
+    </script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+<app-nav></app-nav>
+<div class="row" *ngFor="let hotel of hotels">
+    <div  *ngFor="let room of hotel.rooms"class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="./../../../assets/images/5.jpg"  alt="Card image cap" >
+        <div class="card-body">
+          <h5 class="card-title">{{room.rommNo}}</h5>
+          <p class="card-text">{{room.roomType}}</p>
+          <h5 id="id" >{{room.ratePerDay}}</h5>
+          <a href="#" class="btn btn-primary">Book now</a>
+        </div>
+      </div>
+    </div>
+  </div>

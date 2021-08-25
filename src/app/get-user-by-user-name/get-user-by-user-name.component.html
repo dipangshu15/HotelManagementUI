@@ -1,0 +1,84 @@
+<app-hotel></app-hotel>
+<!--Section: Block Content-->
+<section class="mb-5">
+
+  <div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+
+      <div id="mdb-lightbox-ui"></div>
+
+      <div class="mdb-lightbox">
+
+        <div class="row product-gallery mx-1">
+
+          <div class="col-12 mb-2">
+            <figure class="view overlay rounded z-depth-1 main-img">
+                <img src="../../../assets/images/7.jpg" style="width: 80%; margin-top: 10%;"
+                  class="img-fluid z-depth-1">
+            </figure>
+            
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="../../../assets/images/1.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+             
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="../../../assets/images/4.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="../../../assets/images/2.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6 mt-5" *ngFor="let user of users">
+
+      <h5>{{user.user_name}}  {{user.user_id}}</h5>
+      <p class="pt-1" style="margin-right: 10%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+        error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+        officia quis dolore quos sapiente tempore alias.</p>
+      <div class="table-responsive" style="margin-right: 10%;">
+        <table class="table table-sm table-borderless mb-0" >
+          <tbody>
+            <tr style="margin-right: 10%;">
+              <th class="pl-0 w-25" scope="row"><strong>userName</strong></th>
+              <td>{{user.userName}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>email</strong></th>
+              <td>{{user.email}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>address</strong></th>
+              <td>{{user.address}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>mobile</strong></th>
+              <td>{{user.mobile}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+</section>
+<!--Section: Block Content-->

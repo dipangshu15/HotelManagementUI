@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<title>Bootstrap Simple Registration Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+body {
+	color: rgb(66, 33, 33);
+	/* background: rgb(172, 124, 152); */
+  background-image: url('https://media.cntraveler.com/photos/5f678a747557491753645012/master/w_4000,h_2666,c_limit/w-doha-qatar-suite.jpg');
+	background-size: cover;
+  opacity: 1;
+  font-family: 'Roboto', sans-serif;
+}
+.form-control {
+	height: 40px;
+	box-shadow: none;
+	color: #969fa4;
+}
+.form-control:focus {
+	border-color: #5cb85c;
+}
+.form-control, .btn {        
+	border-radius: 3px;
+}
+.signup-form {
+	width: 450px;
+	margin: 0 auto;
+	padding: 30px 0;
+  	font-size: 15px;
+}
+.signup-form h2 {
+	color: #350606;
+	margin: 0 0 15px;
+	position: relative;
+	text-align: center;
+}
+.signup-form form {
+	color: #999;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background: #f2f3f7;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form .form-group {
+	margin-bottom: 20px;
+}
+.signup-form input[type="checkbox"] {
+	margin-top: 3px;
+}
+.signup-form .btn {        
+	font-size: 16px;
+	font-weight: bold;		
+	min-width: 140px;
+	outline: none !important;
+}
+.signup-form .row div:first-child {
+	padding-right: 10px;
+}
+.signup-form .row div:last-child {
+	padding-left: 10px;
+}    	
+.signup-form form a {
+	color: #5cb85c;
+	text-decoration: none;
+}	 
+</style>
+</head>
+<body>
+<app-hotel></app-hotel>
+<div class="signup-form">
+    <h2 align="center" style="opacity: 1;font-weight: bolder;">New Hotel Registration</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Hotel Id</label>
+            <input  formControlName="hotel_id" type="number" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel City</label>
+            <input  formControlName="city" id="city" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Name</label>
+            <input formControlName="hotel_name" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Address</label>
+            <input formControlName="address" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Description</label>
+            <input formControlName="description" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Email</label>
+            <input formControlName="email" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Phone1</label>
+            <input formControlName="phone1" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Phone2</label>
+            <input formControlName="phone2" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Website</label>
+            <input formControlName="website" type="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Hotel Rooms</label>
+            <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addRooms()">Add Room</button>
+            <div formArrayName="rooms" *ngFor="let room of rooms.controls, let i=index">
+                <input type="number" class="form-control my-1" [formControlName]="i">
+            </div>
+        </div>
+
+        <button [disabled]="!registrationForm.valid"class="btn btn-primary" type="submit">Add</button>
+    </form>
+    {{registrationForm.value | json}}
+</div>
+</body>
+</html>
+
