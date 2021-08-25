@@ -44,4 +44,12 @@ export class BookingDetailsService {
     console.log(userData);
     return this.http.put<any>("http://localhost:7000/bookingdetails/updatebookingdetails/"+userData,bookId);
   }
+
+  addTransaction(amount: number){
+    return this.http.post<any>("http://localhost:7000/transaction/addTransaction/", amount);
+  }
+  
+  addPayment(paymentObject: any) {
+    return this.http.post<any>("http://localhost:7000/payment/addPayment", paymentObject);
+  }
 }
