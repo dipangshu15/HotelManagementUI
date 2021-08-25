@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BookingDetailsService } from 'src/app/booking-details.service';
 
 @Component({
@@ -10,8 +11,11 @@ import { BookingDetailsService } from 'src/app/booking-details.service';
 export class AddBookingComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    private bdService: BookingDetailsService
+    private bdService: BookingDetailsService,
+    private router : Router
   ) {}
+
+  paymentDetail :any
 
   bookingDetailsForm = this.fb.group({
     booking_id: ['', Validators.required],
@@ -44,20 +48,35 @@ export class AddBookingComponent implements OnInit {
   }
 
   confirmAndPay() {
+    let bookingDetail= {
+      "amount" : this.bookingDetailsForm.controls.totalAmount.value
+    };
+
     this.bdService
-      .addTransaction(this.bookingDetailsForm.controls.totalAmount.value)
+      .addTransaction(bookingDetail)
       .subscribe((res) => {
         let postObject: any;
         if (res) {
-          postObject = {
-            ...res,
-            ...this.bookingDetailsForm.value
+          console.log(res.transaction_id)
+          console.log(this.bookingDetailsForm.controls.booking_id.value)
+          this.paymentDetail = 
+            {
+              "transaction" : {
+                "transaction_id" : res.transaction_id
+              },
+              "booking" : {
+                  "booking_id" : this.bookingDetailsForm.controls.booking_id.value
+              }
           }
-          this.bdService.addPayment(postObject).subscribe(res=>{
+          this.bdService.addPayment(this.paymentDetail).subscribe(res=>{
             console.log(res)
+            alert("BOOKING SUCCESSFUl : id: " + res.id)
+            this.router.navigate([""])
           });
+          
         }
       });
+      
   }
 
   ngOnInit(): void {}
